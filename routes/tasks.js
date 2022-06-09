@@ -1,3 +1,4 @@
+const validateObjectID = require('../middleware/validateObjectId')
 const { Task, validate , validStatus } = require('../models/task')
 const moongose = require('mongoose');
 const express = require('express');
@@ -35,6 +36,7 @@ router.get('/descPriority', [auth, admin], async (req, res) => {
 router.post('/', [auth, admin], async (req, res) => {
     const { error } = validate(req.body)
     if (error) return res.status(400).send(error.details[0].message)
+
     let task = await Task.findOne({
         title: req.body.title,
         date: req.body.date,
@@ -53,7 +55,7 @@ router.post('/', [auth, admin], async (req, res) => {
     res.status(200).send(newTask)
 })
 
-router.put('/changeStatuse/:id', [auth, admin], async (req, res) => {
+router.put('/changeStatuse/:id',validateObjectID, [auth, admin], async (req, res) => {
     const { error } = validStatus(req.body)
     if (error) return res.status(400).send(error.details[0].message)
     let task = await Task.findByIdAndUpdate(req.params.id,
@@ -66,11 +68,18 @@ router.put('/changeStatuse/:id', [auth, admin], async (req, res) => {
 })
 
 router.get('/filter', [auth, admin], async (req, res) => {
+    const { error } = validate(req.body)
+    if (error) return res.status(400).send(error.details[0].message)
+
     let task = await Task.find({
         title: req.body.title,
         date:{ $eq : req.body.date} ,
         priority: req.body.priority
     })
+
+    if(task.length == 0){
+        return res.status(404).send('task not found!')
+    }
     res.status(200).send(task)
 })
 module.exports = router;

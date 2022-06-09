@@ -1,0 +1,306 @@
+{
+	"info": {
+		"_postman_id": "89d19567-03bb-45d1-85f9-a10895df94f0",
+		"name": "droppFirstChallenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4040953"
+	},
+	"item": [
+		{
+			"name": "get token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"fatemeh.gorgin32@gmail.com\",\r\n    \"password\" : \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add new task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjkwODhkZGEyNWQzYTA4MTBmZjQ0NjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NTQyNTgwNzF9.1RYIXLOsivC0Y6aG2XSZqygHkk5N3nTlbiq9_IO1yrw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"task2\",\r\n    \"description\" : \"de1thfgbthr\",\r\n    \"priority\" : \"1\",\r\n    \"date\" : \"2022-06-02T20:59:35.269Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by asc date",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjkwODhkZGEyNWQzYTA4MTBmZjQ0NjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NTQyNTgwNzF9.1RYIXLOsivC0Y6aG2XSZqygHkk5N3nTlbiq9_IO1yrw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"task1\",\r\n    \"description\" : \"description1\",\r\n    \"priority\" : 1,\r\n    \"date\" : \"2022-06-02T20:59:35.269Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/task/ascDate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"task",
+						"ascDate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by desc date",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjkwODhkZGEyNWQzYTA4MTBmZjQ0NjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NTQyNTgwNzF9.1RYIXLOsivC0Y6aG2XSZqygHkk5N3nTlbiq9_IO1yrw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"task1\",\r\n    \"description\" : \"description1\",\r\n    \"priority\" : 1,\r\n    \"date\" : \"2022-06-02T20:59:35.269Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/task/descDate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"task",
+						"descDate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by asc priority",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjkwODhkZGEyNWQzYTA4MTBmZjQ0NjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NTQyNTgwNzF9.1RYIXLOsivC0Y6aG2XSZqygHkk5N3nTlbiq9_IO1yrw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"task1\",\r\n    \"description\" : \"description1\",\r\n    \"priority\" : 1,\r\n    \"date\" : \"2022-06-02T20:59:35.269Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/task/ascPriority",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"task",
+						"ascPriority"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by desc priority",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjkwODhkZGEyNWQzYTA4MTBmZjQ0NjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NTQyNTgwNzF9.1RYIXLOsivC0Y6aG2XSZqygHkk5N3nTlbiq9_IO1yrw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"task1\",\r\n    \"description\" : \"description1\",\r\n    \"priority\" : 1,\r\n    \"date\" : \"2022-06-02T20:59:35.269Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/task/descPriority",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"task",
+						"descPriority"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change task status",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjkwODhkZGEyNWQzYTA4MTBmZjQ0NjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NTQyNTgwNzF9.1RYIXLOsivC0Y6aG2XSZqygHkk5N3nTlbiq9_IO1yrw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"statuse\" : \"close\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/task/changeStatuse/629928c1aafa8b2691c9402a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"task",
+						"changeStatuse",
+						"629928c1aafa8b2691c9402a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filter tasks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjkwODhkZGEyNWQzYTA4MTBmZjQ0NjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NTQyNTgwNzF9.1RYIXLOsivC0Y6aG2XSZqygHkk5N3nTlbiq9_IO1yrw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"task1\",\r\n    \"priority\" : 2,\r\n    \"date\" : \"2022-06-02T20:59:35.269Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/task/filter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"task",
+						"filter"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

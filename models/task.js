@@ -9,9 +9,6 @@ const taskSchema = new moongose.Schema({
     },
     description: {
         type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 50
     },
     date: {
         type: Date, 
@@ -37,7 +34,6 @@ function validateTask(task) {
     //   };
     const schema = Joi.object({
         title: Joi.string().min(5).max(50).required(),
-        description: Joi.string().min(5).max(255).required(),
         date: Joi.date().required(),
         priority: Joi.number().required()
     })
